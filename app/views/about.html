@@ -1,0 +1,21 @@
+<!--main view for application-->
+<div ui-view ng-controller="AboutCtrl">
+	<h3>New Search</h1>
+	<div>
+	<label>Region/Location</label>
+	<select ng-model="regionLocation">
+	<option ng-repeat="Region in Regions" value="{{Region.city}}">{{Region.city}}</option>
+	</select><br>
+	<label>Specialty</label>
+	<select ng-model="specialty" ng-options="sp.disease as sp.disease for sp in Speciality"></select><br>
+	<label>Assigned To</label>
+	<select ng-model="assignedTo"></select><br>
+	<label>Physician Relationship</label>
+	<input type="radio" name="pr" value="pr" ng-model="physicianRelationship">All
+	<input type="radio" name="pr" value="pr" ng-model="physicianRelationship">Involved
+	<input type="radio" name="pr" value="pr" ng-model="physicianRelationship">Lead<br>
+	<input type="button" value="search">
+	</div>
+	{{myData}}
+	<div class="gridStyle" ng-grid="gridOptions"></div>
+</div>
