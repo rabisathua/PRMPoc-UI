@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>INFLUENCE HEALTH PREDICT : Physician Search</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/css/style.css">
+    <link rel="stylesheet" href="styles/css/summary.css">
+    <link rel="stylesheet" href="styles/css/media-queries.css">
+</head>
+<body ng-controller="SearchPhysicianCtrl">
+    <div class="container">
+        <div class="row" id="headerjs">
+            <div class="col-lg-12" id="headermain">
+            <div class="col-md-6 col-sm-6 col-xs-8 logo">
+                <div class="image-contnr">
+                    <img src="images/logo.png" alt="Bill & Melinda Gates - Foundation" />
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-4 navigationbar">
+                <a role="menuitem" href="/#/home" >HOME</a>
+                
+                
+                <div class="dropdown openprofile">
+                  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                    <img src="images/Profile-Pic.png" alt="profile pic" id="profileicon"/><span id="name">User Name</span>
+                    <span class="caret custom"></span>
+                      </button>
+                  <ul class="dropdown-menu openprofile-menu" role="menu" aria-labelledby="dropdownMenu1" id="profiledrop">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="edit"><span title="Edit profile"></span>Edit profile</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="/#/login" id="logout"><span title="Log out"></span>Log Out</a></li>
+                  </ul>
+                </div>
+
+            </div>
+        </div>
+        </div>
+        <div class="row" id="maincontainer">
+            <div class="col-md-12" id="admincontainer">
+                <!-- <div class="col-md-12 knowledgeheader">
+                    <h2>Project Title Comes Here</h2>
+                </div> -->
+                <!-- Nav tabs -->
+                <!-- Tab panes -->
+                <div class="tab-content setting-details  col-xs-12">
+                    <div>
+                        <div class="col-lg-12 box cleardiv cover-div">
+                            <label class="col-lg-6 pull-left list-title">New Search</label>
+                            <!-- <div class="search-add-right">                                
+                                <button class="pull-right activebtn">Back</button>
+                                <button class="pull-right activebtn" data-toggle="modal"
+                                    data-target="#addUserModal"
+                                    value="Add-customers">
+                                    Add</button>
+                            </div> -->
+                        </div>
+                        <div class="col-lg-12 row">
+                            <div class="col-lg-9 col-md-9 row">
+                                <div class="col-md-9 form-group">
+                                    <label for="inputEmail3" class="col-sm-3 control-label">Region/Location</label>
+                                    <div class="col-sm-4">
+                                        <select ng-model="regionLocation" class="form-control" required ng-options="Region.name for Region in Regions">
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-2 padding-0">
+                                        <input type="text" class="form-control" ng-model="zipCode" placeholder="Enter Zip">
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control" ng-model="radius" placeholder="Enter Radius">
+                                    </div>
+                                </div>
+                                <div class="col-md-9 form-group cleardiv">
+                                    <label for="inputEmail3" class="col-sm-3 control-label">Specialty</label>
+                                    <div class="col-sm-9">
+                                        <select class="form-control" ng-model="speciality" ng-options="Speciality.name for Speciality in specialities">
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-md-9 form-group cleardiv">
+                                    <label for="inputEmail3" class="col-sm-3 control-label">Assigned To</label>
+                                    <div class="col-sm-9">
+                                        <select class="form-control" ng-model="speciality" ng-options="Speciality.name for Speciality in Specialty">
+                                        </select>
+                                    </div>
+                                </div> -->
+                                <div class="col-md-9 form-group cleardiv">
+                                    <label for="inputEmail3" class="col-sm-3 control-label">Physician Relationship</label>
+                                    <div class="col-sm-9" style="padding-top: 10px;">
+                                        <input name="radio" ng-model="physiciansType" id="All" type="radio" value="all">
+                                        <label for="all">All</label>
+                                        <input id="Involved" ng-model="physiciansType" name="radio" type="radio" value="involved">
+                                        <label for="Involved">Involved</label>
+                                        <input name="radio" ng-model="physiciansType" id="Lead" type="radio" value="lead">
+                                        <label for="Lead">Lead</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="search-add-right">                                
+                                <button class="pull-right activebtn" ng-click="search(regionLocation.id,speciality.id,physiciansType)">Search</button>
+                                <!-- <button class="pull-right activebtn" data-toggle="modal"
+                                    data-target="#addUserModal"
+                                    value="Add-customers">
+                                    Cancel</button> -->
+                            </div>
+                        </div>                      
+                         <div class="col-lg-12 col-md-12 col-xs-12 outer-spacing border-top" style="border-top: 1px solid #999;padding-top: 15px;">
+                            <table class="table detail-table" id="detail-userdatatable">
+                                <thead>
+                                    <tr>
+                                        <th class="col-name">Physician Name</th>
+                                        <th class="col-description">First name</th>
+                                        <th class="col-last_name">Last Name</th>
+                                        <th class="col-npi">NPI</th>
+                                        <th class="col-department_name">Department</th>
+                                        <!-- <th class="col-action">Specialty</th> -->
+                                        <th class="col-action aligncenter">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="physician in physicians">
+                                        <td data-content="Physician Name">
+                                            {{physician.first_name}} {{physician.last_name}}, {{physician.qualification}}
+                                        </td>
+                                        <td data-content="First Name">
+                                            {{physician.first_name}} 
+                                        </td>
+                                        <td data-content="Last Name">
+                                            {{physician.last_name}} 
+                                        </td>
+                                        <td data-content="NPI">
+                                            {{physician.npi_number}} 
+                                        </td>
+                                        <td data-content="Department Name">
+                                            {{physician.department}} 
+                                        </td>
+                                        <!-- <td data-content="Specialty">
+                                            {{physician.speciality_id}} 
+                                        </td> -->
+                                        <td data-content="Actions">
+                                            <div class="aligncenter">
+                                                <span title="Edit" class="admin-edit"></span>
+                                                <span title="View" class="admin-activate" data-toggle="modal" data-target="#deactivateModal"></span>
+                                                <span title="Log" class="admin-delete" data-toggle="modal" data-target="#deleteModalYN"></span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>                                
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="row" id="footerjs">
+        <div class="col-lg-12 footer">
+            <span>© Copyright 2015 <a href="http://www.emids.com" target="_blank">Influence Health. </a>All Rights Reserved.</span>
+            <!-- <span><a href="">Lorum</a></span>
+            <span>|</span>
+            <span><a href="">Lorum</a></span> -->
+        </div>
+    </div>
+    </div>
+    <!-- <div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header coursecommontitle">
+                    <h3 class="modal-title" id="H5">Add File</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-fields">
+                        <div class="slabel">
+                            <p>Browse:</p>
+                        </div>
+                        <div class=" valuetext">
+                            <input type="file" />
+                        </div>
+                    </div>
+                    <div class="modal-fields">
+                        <div class="slabel">
+                            <p>File Name:</p>
+                        </div>
+                        <div class=" valuetext">
+                            <input type="text" />
+                        </div>
+                    </div>
+                    <div class="modal-fields">
+                        <div class="slabel">
+                            <p>Discription:</p>
+                        </div>
+                        <div class=" valuetext">
+                            <input type="text" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer"> 
+                    <div class="modal-fields">
+                        <div class="slabel"></div>
+                        <div class=" valuetext">                    
+                            <button type="button" class="activebtn  right-spacing adduserAction">Add</button>
+                            <button type="button" class="resetbtn" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- // <script type="text/javascript" src="Scripts/jquery.js"></script> -->
+     <!-- // <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> -->
+     <script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+     <script src="https://cdn.datatables.net/responsive/1.0.6/js/dataTables.responsive.min.js"></script>
+    <!-- // <script src="scripts/custom.js"></script> -->
+    <script src="scripts/controllers/searchPhysician.js"></script>           
+    <script>
+        $(function () {
+            $("#detail-datatable, #detail-groupdatatable, #detail-userdatatable ").DataTable();
+
+        });
+    </script>
+</body>
+</html>

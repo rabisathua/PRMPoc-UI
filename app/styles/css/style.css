@@ -1,0 +1,176 @@
+@import url(fonts.css);
+
+html,body{
+margin:0;
+padding:0;
+font-family:robotolight;
+height:100%;
+}
+a{
+text-decoration:none;
+}
+.row{
+margin:0 auto;
+padding:0;
+width:100%;
+}
+ .container{
+margin:0 auto;
+padding:0;
+width:100%;
+position:relative;
+min-height:100%;
+max-width:1366px;
+}
+#header, #headermain {
+font: normal 20px/80px robotolight;
+color:#fff;
+background:#ffffff;
+padding: 0px 50px;
+height:80px;
+}
+#header a {
+font: normal 15px/80px robotolight;
+color:#999999;
+padding:0 18px;
+font-weight:600;
+font-size: 14px;
+}
+#header{
+/* min-width: 540px; */
+}
+#headermain a{
+font: normal 15px robotolight;
+color:#666666;
+padding:0 10px;
+font-weight:600;
+font-size: 14px;
+text-decoration: none;
+}
+#headermain{
+/*min-width: 715px;*/
+}
+#header a:hover,  #headermain a:hover{
+color:#333333;
+text-decoration: none;
+font-size: 14px;
+}
+.logo{
+float:left;
+max-height:80px;
+}
+.logo a{
+padding:0!important;
+}
+.navigationbar{
+max-height:80px;
+text-align:right;
+/*overflow:hidden;*/
+}
+#header .navigationbar a, #headermain .navigationbar a{
+	display: inline-block;
+}
+/*#header .navigationbar > a:focus, #headermain .navigationbar > a:focus , #header .navigationbar  > a:hover, #headermain .navigationbar  > a:hover{
+background-color:#414954;
+text-decoration:none;
+height:78px;
+}*/
+.splitter{
+width: 1px;
+height: 23px;
+display: inline-block;
+background: #666666;
+vertical-align: middle;
+margin: 0px;
+}
+.blue-splitter{
+width: 1px;
+height: 15px;
+display: inline-block;
+background: #337ab7;
+vertical-align: middle;
+margin: 0px;
+}
+#toggleholder{
+	position:relative;
+	display:inline;
+}
+.pagetitle{
+color:#B7BFCA;
+font-size:35px;
+font-weight:300;
+}
+.image-contnr{
+display:inline-block;
+float:left;
+}
+#clientlogo{
+margin-left:8px;
+  width: 150px;
+  height: 43px;
+}
+.image-contnr img{
+width: 314px;
+height:39px;
+}
+.footer span, .startfooter span{
+padding:0 7px;
+}
+.footer a, .startfooter a{
+color:#AAA9A9;
+} 
+.footer a:hover, .startfooter  a:hover {
+text-decoration:none;
+color:#ffffff;
+}
+.footer, .startfooter{
+background-color:#323A45;
+color:#AAA9A9;
+height:35px;
+padding: 0px 50px;
+line-height:35px;
+font-size:13px;
+font-weight:300;	
+ position:absolute;
+bottom:0;
+left:0; /**/
+width:100%;
+}
+.startfooter{
+height:25px;
+line-height:25px;
+}
+#jsdisabled, #lowerversion, #lower-resolution{
+max-width:600px;
+border:2px solid #ffffff;
+background:#dddddd	;
+overflow:hidden;	
+margin:20px auto;
+}
+#bstoggle{
+display:inline-block;
+	width:40px;
+	height:31px;
+	background:url(/images/bstoggle.png)no-repeat center center;
+	margin: 25px auto;
+	display:none;
+}
+#bstoggle:hover{
+color:#ffffff;
+border-radius:5px;
+border:2px solid #dddddd;
+}
+
+/*dashboard-style*/
+
+.control-label {
+	padding-top: 7px;
+}
+.padding-0 {
+	padding: 0px;
+}
+.form-group {
+    margin-bottom: 15px;
+	float: left;
+}
+

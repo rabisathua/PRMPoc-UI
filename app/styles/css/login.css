@@ -1,0 +1,98 @@
+body{
+background-image:url("/images/home.jpg");
+background-position:top center;
+background-repeat:no-repeat;
+} 
+.login-main-container{
+position:relative;
+margin: 0 auto;
+}
+.signin h4{
+color:#ffffff;
+margin-bottom:30px;
+font-weight: 600;
+}
+.signin{ 
+background-color: rgba(0, 0, 0, 0.5);
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+max-width:380px;
+padding: 10px 50px;
+margin: 85px auto 0px auto;
+}
+.signin input[type="text"], .signin input[type="password"], .signin button, .signin  a{
+width:100%;
+height:40px;
+padding:5px 10px;
+margin-bottom:7px;
+display:block;
+border:none;
+outline:none;
+color:#AAA9A9;
+font-size:15px;
+}
+
+.signin button{
+background-color:#FBAE3B;
+color:#ffffff;
+font-size:20px;
+margin-top:22px;
+}
+.signin button:hover{
+background-color:#F79D26;
+}
+.signin  a{
+text-align: center;
+font-weight: 300;
+color: #FBAE3B;
+}
+#usrnme{
+background:#ffffff url("/images/userbg.png") no-repeat 5% center;
+padding-left: 30px;
+background-size:11px 14px;
+}
+#pswrd{
+background:#ffffff url("/images/passwordbg.png") no-repeat 5% center;
+padding-left: 30px;
+background-size:11px 14px;
+}
+.contentdisc{
+-webkit-text-security: disc; 
+}
+.flowtext{
+margin-top:80px;
+color:#f0efeb;
+max-width:530px;
+}
+.flowtext h1{
+font-size:40px;
+font-weight:300;
+}
+.flowtext p{
+color:#f0f0ee;
+font-size:17px;
+font-weight:100;
+margin:20px 0px;
+}
+.flowtext a{
+font-size:33px;
+color:#FBAE3B;
+background:url("/images/arrow.png")no-repeat 100% 65%;
+padding-right:25px;
+font-family:robotobold;
+background-size: 15px 15px;
+display:none;
+}
+
+.flowtext a:hover{
+text-decoration:none;
+}
+@media (max-width:1024px){
+	body{
+	background-image:url("/images/tb-bg.jpg")!important;
+	background-position:center center;
+	background-repeat:no-repeat;
+	background-size:cover;
+	background-attachment:fixed;
+	}
+}

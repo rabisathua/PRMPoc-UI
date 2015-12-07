@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+	INFLUENCE HEALTH PREDICT
+</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Client University is a certification program designed to help you understand systems, functionalities, data flows, and data standards particular to Providers from an HIS (Hospital Information System) perspective. Also, following in the same vein as its predecessor this program will include courses that effectively integrate U.S. healthcare industry knowledge from an IT systems perspective on the Provider's side.">
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+<meta name="keywords" content="Client university, e-IHC, e-AHC, Active heath, care engine">
+
+<!-- Latest compiled and minified CSS -->
+<!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <!-- <link rel="stylesheet" href="bower_components/angular-ui-grid/ui-grid.css" /> -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+<!-- Optional theme -->
+<link  rel="stylesheet" href="/styles/css/style.css">
+<link  rel="stylesheet" href="/styles/css/media-queries.css">
+<link  rel="stylesheet" href="/styles/css/login.css">
+<!-- Latest compiled and minified JavaScript -->
+<noscript>
+        <style>
+            #jsdisabled {
+               display:block!important;
+            }
+
+            .login-main-container {
+                display: none;
+            }
+        </style>
+</noscript>
+     <style>
+        .signin button {
+        margin-bottom:22px;
+        }
+
+    </style>
+</head>
+<body ng-controller="LoginCtrl">
+<!-- Navigation -->
+	<div class="container">
+        <div class="row">
+            <div class="col-lg-12" id="header">
+				<div class="col-md-6 col-xs-8 logo">
+					<div class="image-contnr"><img src="images/logo.png" alt="INFLUENCE HEALTH PREDICT" /></div>
+					<span class="pagetitle"></span>
+				</div>
+				<div class="col-md-6 col-xs-4 navigationbar">
+					<a href="#" class="about">Register</a>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="clearfix"></div>
+			<div class="col-lg-12 login-main-container">
+				<div class="col-md-4">
+					<div class="signin">
+						<h4>User Login</h4>
+						<input type="text" id="usrnme" value="User name" ng-model="email" title="Enter valid username"  onfocus="if (this.value=='User name') {this.value=''}" onblur="if (this.value=='') {this.value='User name'}"/>
+						<input type="text"  id="pswrd" value="Password" ng-model="password" title="Enter valid password"  onfocus="if (this.value=='Password') {this.value='';this.setAttribute('class', 'contentdisc');}" onblur ="if(this.value==''){this.value='Password'; this.removeAttribute('class');}"/>
+						<button ng-click="login1()">Sign In</button>
+						<a href="#">Forgot Password?</a>
+					</div>
+				</div>
+				<div class="col-md-8">
+					<div class="flowtext pull-right text-right">
+						<h1>Physician Relationship Management</h1>
+						<p>PRM tag line</p>
+					</div>
+				</div>
+			</div>
+		</div>	
+		<div class="row" >
+			<div class="col-lg-12 footer">
+                <span><a href="#" target="_blank">© Copyright 2015 INFLUENCE HEALTH PREDICT. All Rights Reserved.</a></span>
+				<!-- <span><a href="">Lorum</a></span>
+				<span>|</span>
+				<span><a href="">Lorum</a></span> -->
+            </div>
+		</div>
+	</div>
+</body>
+
+<script src="scripts/custom.js"></script>
+<script src="scripts/controllers/login.js"></script>
+
+</html>

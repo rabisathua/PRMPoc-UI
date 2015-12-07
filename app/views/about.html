@@ -2,20 +2,24 @@
 <div ui-view ng-controller="AboutCtrl">
 	<h3>New Search</h1>
 	<div>
-	<label>Region/Location</label>
+	<label>Region/Location</label>{{Regions}}
 	<select ng-model="regionLocation">
 	<option ng-repeat="Region in Regions" value="{{Region.city}}">{{Region.city}}</option>
 	</select><br>
 	<label>Specialty</label>
-	<select ng-model="specialty" ng-options="sp.disease as sp.disease for sp in Speciality"></select><br>
+	<select ng-model="physicianSearchData.specialty" ng-options="sp.disease as sp.disease for sp in Speciality"></select><br>
 	<label>Assigned To</label>
-	<select ng-model="assignedTo"></select><br>
+	<select ng-model="physicianSearchData.assignedTo" ng-options="ph.physician as ph.physician for ph in AssignedPhysician"></select><br>
 	<label>Physician Relationship</label>
-	<input type="radio" name="pr" value="pr" ng-model="physicianRelationship">All
-	<input type="radio" name="pr" value="pr" ng-model="physicianRelationship">Involved
-	<input type="radio" name="pr" value="pr" ng-model="physicianRelationship">Lead<br>
-	<input type="button" value="search">
+	<input type="radio" name="pr" value="pr" ng-model="physicianSearchData.physicianRelationship">All
+	<input type="radio" name="pr" value="pr" ng-model="physicianSearchData.physicianRelationship">Involved
+	<input type="radio" name="pr" value="pr" ng-model="physicianSearchData.physicianRelationship">Lead<br>
+	<input type="button" value="search" ng-click="searchPhysician()">
 	</div>
-	{{myData}}
-	<div class="gridStyle" ng-grid="gridOptions"></div>
+	<div>
+	<div class="gridStyle" ui-grid="gridOptions"></div>
+	</div>
+	
+	{{physicianSearchData}}
+	
 </div>

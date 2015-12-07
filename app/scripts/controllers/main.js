@@ -8,10 +8,10 @@
  * Controller of the prmUiApp
  */
 angular.module('prmUiApp')
-  .controller('MainCtrl', function () {
+  .controller('MainCtrl', function ($scope) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
-    ];
+    ];    
   });
