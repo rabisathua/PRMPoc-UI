@@ -106,3 +106,9 @@ angular
         redirectTo: '/'
       });
   });
+
+angular
+  .module('prmUiApp')
+  .run(function ($http) {
+    $http.defaults.headers.common.Authorization = {'access-token': "UMrTeBgmA2iNwybcdOC8HQ", 'client': "ZK-8Rf7sObHiI1eYaKLjhA", 'uid':"c9c66b97413241a6a88d1b8bfabbad48"};
+  });

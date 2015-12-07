@@ -18,7 +18,7 @@ angular.module('prmUiApp')
     $http({
       method: 'GET',
       url: 'http://localhost:3000/api/v1/locations',
-      headers: {'access-token': "UMrTeBgmA2iNwybcdOC8HQ", 'client': "ZK-8Rf7sObHiI1eYaKLjhA", 'uid':"c9c66b97413241a6a88d1b8bfabbad48"}
+      //headers: {'access-token': "UMrTeBgmA2iNwybcdOC8HQ", 'client': "ZK-8Rf7sObHiI1eYaKLjhA", 'uid':"c9c66b97413241a6a88d1b8bfabbad48"}
       }).success(
       function(locationsData){
         $scope.Regions=locationsData;
@@ -27,7 +27,7 @@ angular.module('prmUiApp')
     $http({
       method: 'GET',
       url: 'http://localhost:3000/api/v1/specialities',
-      headers: {'access-token': "UMrTeBgmA2iNwybcdOC8HQ", 'client': "ZK-8Rf7sObHiI1eYaKLjhA", 'uid':"c9c66b97413241a6a88d1b8bfabbad48"}
+      //headers: {'access-token': "UMrTeBgmA2iNwybcdOC8HQ", 'client': "ZK-8Rf7sObHiI1eYaKLjhA", 'uid':"c9c66b97413241a6a88d1b8bfabbad48"}
       }).success(
       function(specialitiesData){
         $scope.specialities=specialitiesData;
@@ -37,7 +37,7 @@ angular.module('prmUiApp')
         $http({
         method: 'GET',
         url: 'http://localhost:3000/api/v1/physicians?filters[location_id]='+id1+'&filters[speciality_id]='+id2+'&filters[by]='+type,
-        headers: {'access-token': "UMrTeBgmA2iNwybcdOC8HQ", 'client': "ZK-8Rf7sObHiI1eYaKLjhA", 'uid':"c9c66b97413241a6a88d1b8bfabbad48"}
+        //headers: {'access-token': "UMrTeBgmA2iNwybcdOC8HQ", 'client': "ZK-8Rf7sObHiI1eYaKLjhA", 'uid':"c9c66b97413241a6a88d1b8bfabbad48"}
         }).success(
         function(physiciansData){
           $scope.physicians=physiciansData;
