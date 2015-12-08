@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="styles/css/summary.css">
     <link rel="stylesheet" href="styles/css/media-queries.css">
 </head>
-<body ng-controller="SearchPhysicianCtrl">
+<body ui-view ng-controller="SearchPhysicianCtrl">
     <div class="container">
         <div class="row" id="headerjs">
             <div class="col-lg-12" id="headermain">
@@ -107,7 +107,7 @@
                                     Cancel</button> -->
                             </div>
                         </div>                      
-                         <div class="col-lg-12 col-md-12 col-xs-12 outer-spacing border-top" style="border-top: 1px solid #999;padding-top: 15px;">
+                         <div ng-show="showGrid" class="col-lg-12 col-md-12 col-xs-12 outer-spacing border-top" style="border-top: 1px solid #999;padding-top: 15px;">
                             <table class="table detail-table" id="detail-userdatatable">
                                 <thead>
                                     <tr>
@@ -210,10 +210,11 @@
     </div> -->
     <!-- // <script type="text/javascript" src="Scripts/jquery.js"></script> -->
      <!-- // <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> -->
-     <script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
-     <script src="https://cdn.datatables.net/responsive/1.0.6/js/dataTables.responsive.min.js"></script>
+     // <!-- <script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+     // <script src="https://cdn.datatables.net/responsive/1.0.6/js/dataTables.responsive.min.js"></script> -->
     <!-- // <script src="scripts/custom.js"></script> -->
-    <script src="scripts/controllers/searchPhysician.js"></script>           
+    <!-- // <script src="scripts/controllers/searchPhysician.js"></script>     -->
+    <!-- // <script src="scripts/factories/searchPhysician.js"></script>                -->
     <script>
         $(function () {
             $("#detail-datatable, #detail-groupdatatable, #detail-userdatatable ").DataTable();

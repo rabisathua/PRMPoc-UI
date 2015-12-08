@@ -15,8 +15,7 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch',
-    'ui.grid'
+    'ngTouch'
     //'ng-token-auth'
   ])
    .config(function ($routeProvider) {
@@ -96,11 +95,6 @@ angular
         templateUrl: 'views/searchPhysician.html',
         controller: 'SearchPhysicianCtrl',
         controllerAs: 'searchPhysician'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
       })
       .otherwise({
         redirectTo: '/'
