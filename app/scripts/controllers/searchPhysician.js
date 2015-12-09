@@ -8,7 +8,7 @@
  * Controller of the prmUiApp
  */
 angular.module('prmUiApp')
-  .controller('SearchPhysicianCtrl', function ($scope,searchPhysicianFactory) {
+  .controller('SearchPhysicianCtrl', function ($http,$scope,searchPhysicianFactory,$window) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -16,7 +16,7 @@ angular.module('prmUiApp')
       'searchPhysicianFactory'
     ];
 
-    searchPhysicianFactory.getLocations().success(
+     searchPhysicianFactory.getLocations().success(
       function(locationsData){
         $scope.Regions=locationsData;
       }).error(
@@ -24,7 +24,7 @@ angular.module('prmUiApp')
           alert('Failed to load locations');         
         });
 
-    searchPhysicianFactory.getSpecialities().success(
+     searchPhysicianFactory.getSpecialities().success(
       function(specialitiesData){
         $scope.specialities=specialitiesData;
       }).error(
@@ -42,7 +42,6 @@ angular.module('prmUiApp')
           alert('Failed to load physicians')
           $scope.showGrid = false;
         });
-
-      }
+      };  
 
   });

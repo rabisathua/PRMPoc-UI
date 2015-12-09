@@ -14,32 +14,20 @@ angular.module('prmUiApp')
       'AngularJS',
       'Karma'
       //'ng-token-auth'
-    ];
+    ];    
 
-    
-
-    $scope.login1 = function () {
-      // $auth.submitLogin({
-      //   email: $scope.email,
-      //   password: $scope.password
-      // }).then(function(response){
-      //     alert('passed');
-      //     $window.location.href = '/#/home'
-      // }).catch(function(response){
-      //     alert('failed');
-      // });
-
+    $scope.doLogin = function (email,password) {
       $http({
-      // header: ('Access-Control-Allow-Origin: http://v1/api/locations')
-      url: 'http://localhost:3000/api/auth/sign_in?email=test@ih.com&password=test1234',
-      //port: 3000,
+      url: 'http://localhost:3000/api/auth/sign_in?email='+email+'&password='+password,
       method: 'POST'
-      //data: {'login' : login}
-    }).then(function(locationsData){
+    }).success(function(locationsData,status,headers,config){
         $window.location.href = '/#/home'
-      });
-
-      
+        $window.accessToken=headers('access-token')
+        $window.client=headers('client')
+        $window.uid=headers('uid')
+      }).error(function () {
+        alert('Unauthorized user');
+      });      
     };
 
   });
