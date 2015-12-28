@@ -18,8 +18,8 @@ angular
     'ngTouch'
     //'ng-token-auth'
   ])
-   .config(function ($routeProvider) {
-    
+  .config(function($routeProvider) {
+
     $routeProvider
       .when('/', {
         templateUrl: 'views/login.html',
@@ -30,7 +30,7 @@ angular
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl',
         controllerAs: 'login'
-      })      
+      })
       .when('/home', {
         templateUrl: 'views/home.html',
         //controller: 'HomeCtrl',
@@ -46,8 +46,8 @@ angular
       });
   });
 
-angular 
-  .module('prmUiApp') 
-  .run(function ($http,$window) { 
-    $http.defaults.headers.common.Authorization = {'access-token': $window.accessToken, 'client': $window.client, 'uid':$window.uid}; 
-  });
+// angular
+//   .module('prmUiApp')
+//   .run(function ($http,$window) {
+//     $http.defaults.headers.common = {'access-token': $window.accessToken, 'client': $window.client, 'uid':$window.uid};
+//   });

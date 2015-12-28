@@ -21,7 +21,7 @@ angular.module('prmUiApp')
         $scope.Regions=locationsData;
       }).error(
         function () {
-          alert('Failed to load locations');         
+          alert('Failed to load locations');
         });
 
      searchPhysicianFactory.getSpecialities().success(
@@ -29,7 +29,7 @@ angular.module('prmUiApp')
         $scope.specialities=specialitiesData;
       }).error(
         function () {
-          alert('Failed to load specialities');          
+          alert('Failed to load specialities');
         });
 
       $scope.search = function (locationId,specialityId,physicianType){
@@ -42,6 +42,6 @@ angular.module('prmUiApp')
           alert('Failed to load physicians')
           $scope.showGrid = false;
         });
-      };  
+      };
 
   });

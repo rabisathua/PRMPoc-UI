@@ -1,0 +1,34 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<div class="panel-body">
+<div class="iui-table">
+<table class="table  responsive table-hover  {{iuiTable.tableClass}}">
+<caption><span></span></caption>
+<thead>
+<tr>
+<th scope="col"><input type="checkbox" class="custom-checkbox in-table-header" id="item-selected-{{iuiTable.tableClass}}" target="_blank">
+<label for="item-selected-{{iuiTable.tableClass}}" target="_blank"><span class="sr-only">Select All</span></label>
+<span class="sr-only">Selected</span> </th>
+<th scope="col" class="table_header_{{column.field}}">{{columnHeader.displayName}}
+</th>
+<th scope="col"><span class="sr-only">Actions</span> </th>
+</tr>
+</thead>
+<tbody>
+{{rowData}}
+<tr>
+</tr>
+</tbody>
+<tbody>
+<tr>
+</tr>
+</tbody>
+</table>
+<p class="empty-table-message-wrap">{{iuiTable.emptyMessage}}</p>
+</div>
+</div>
+</body>
+</html>
