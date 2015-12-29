@@ -52,7 +52,6 @@ angular.module('prmUiApp')
               $scope.showGrid = false;
             });
       };  
-
     $scope.populateSpeciality = function(selected_items)
     {
         $window.appIds = selected_items;
