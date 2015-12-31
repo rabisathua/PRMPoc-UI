@@ -1,34 +1,57 @@
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-</head>
-<body>
 <div class="panel-body">
 <div class="iui-table">
-<table class="table  responsive table-hover  {{iuiTable.tableClass}}">
-<caption><span></span></caption>
-<thead>
-<tr>
-<th scope="col"><input type="checkbox" class="custom-checkbox in-table-header" id="item-selected-{{iuiTable.tableClass}}" target="_blank">
-<label for="item-selected-{{iuiTable.tableClass}}" target="_blank"><span class="sr-only">Select All</span></label>
-<span class="sr-only">Selected</span> </th>
-<th scope="col" class="table_header_{{column.field}}">{{columnHeader.displayName}}
-</th>
-<th scope="col"><span class="sr-only">Actions</span> </th>
-</tr>
-</thead>
-<tbody>
-{{rowData}}
-<tr>
-</tr>
-</tbody>
-<tbody>
-<tr>
-</tr>
-</tbody>
-</table>
-<p class="empty-table-message-wrap">{{iuiTable.emptyMessage}}</p>
+    <table class="table  responsive table-hover  {{iuiTable.tableClass}}">
+        <caption ng-if="iuiTable.tableCaption">
+            <span ng-bind="iuiTable.tableCaption"
+                  ng-class="{'sr-only':iuiTable.hideTableCaption}">
+            </span>
+        </caption>
+
+        <thead>
+            <tr>
+                <th scope="col" ng-repeat="columnHeader in iuiTable.displayColumns | filter:{field:'checkbox'}">
+                    <input type="checkbox" class="custom-checkbox in-table-header" ng-model="selectedAll" id="item-selected-{{iuiTable.tableClass}}" ng-click="checkAll()">
+                    <label for="item-selected-{{iuiTable.tableClass}}"><span class="sr-only">Select All</span></label>
+                    <span class="sr-only">Selected</span>
+                </th>
+                <th scope="col"
+                    ng-repeat="columnHeader in iuiTable.displayColumns | filter:{field:'!Button' && '!checkbox'}"
+                    class="table_header_{{column.field}}">
+                    <iui-sort-heading iui-sort-key="{{columnHeader.field}}"
+                                      iui-sort-by="iuiTable.sortingOptions.field"
+                                      iui-reverse="iuiTable.sortingOptions.reverse"
+                                      iui-reverse="iuiTable.sortingOptions.reverse" tooltip="{{columnHeader.displayName}}">
+                        {{columnHeader.displayName}}
+                    </iui-sort-heading>
+                </th>
+                <th scope="col" ng-repeat="columnHeader in iuiTable.displayColumns | filter:{field:'Button'}">
+                    <span class="sr-only">Actions</span>
+                </th>
+            </tr>
+        </thead>
+        <tbody ng-if="!iuiTable.serverSideSorting">    {{rowData}}
+            <!--| orderBy:iuiTable.sortingOptions.field:iuiTable.sortingOptions.reverse | startFrom:(iuiTable.pagingOption.currentPage-1)*iuiTable.pagingOption.itemsPerPage | limitTo:iuiTable.pagingOption.itemsPerPage
+          | orderBy:iuiTable.sortingOptions.field:iuiTable.sortingOptions.reverse | startFrom:(iuiTable.pagingOption.currentPage-1)*iuiTable.pagingOption.itemsPerPage | limitTo:iuiTable.pagingOption.itemsPerPage-->
+          <tr ng-repeat="row in iuiTable.rowData | orderBy:iuiTable.sortingOptions.field:iuiTable.sortingOptions.reverse |  limitTo:iuiTable.pagingOption.itemsPerPage"
+                ng-include="(iuiTable.rowTemplate)?iuiTable.rowTemplate:iuiTable.settings.defaultRowTemplate"></tr>
+        </tbody>
+        <tbody ng-if="iuiTable.serverSideSorting">
+            <tr ng-repeat="row in iuiTable.rowData | startFrom:(iuiTable.pagingOption.currentPage-1)*iuiTable.pagingOption.itemsPerPage | limitTo:iuiTable.pagingOption.itemsPerPage"
+                ng-include="(iuiTable.rowTemplate)?iuiTable.rowTemplate:iuiTable.settings.defaultRowTemplate"></tr>
+        </tbody>
+    </table>
+    <p ng-if="iuiTable.rowData.length === 0" class="empty-table-message-wrap">{{iuiTable.emptyMessage}}</p>
+    <ms-pagination ng-if="iuiTable.rowData.length > 0 && !iuiTable.hideTablePager"
+                   boundary-links="true"
+                   total-items="iuiTable.rowData.length"
+                   items-per-page="iuiTable.pagingOption.itemsPerPage"
+                   page="iuiTable.pagingOption.currentPage"
+                   num-pages="iuiTable.pagingOption.pageSize"
+                   set-number-of-pages="iuiTable.setNumberOfPages"
+                   previous-text="Prev"
+                   next-text="Next"
+                   first-text="First"
+                   last-text="Last">
+    </ms-pagination>
 </div>
-</div>
-</body>
-</html>
+    </div>

@@ -25,7 +25,7 @@ angular.module('prmUiApp')
         url:urlBase + '/physicians?filters[location_id]='+locationId+'&filters[speciality_id]='+specialityId+'&filters[by]='+physicianType,
         headers:authHeaders
       });
-  	};  	
+  	};
 
   	return searchPhysicianFactory;
   }]);

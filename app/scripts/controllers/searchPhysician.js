@@ -36,12 +36,35 @@ angular.module('prmUiApp')
         searchPhysicianFactory.getPhysicians(locationId,specialityId,physicianType).success(
         function(physiciansData){
           $scope.physicians = physiciansData;
-          $scope.showGrid = true;
+          loadUIGrid($scope.gridColumns, physiciansData);
+          $scope.showGrid = false;
         }).error(
         function () {
           alert('Failed to load physicians')
           $scope.showGrid = false;
         });
       };
+
+      function loadUIGrid(gridColumn, physiciansData) {
+        $scope.controllerData = {
+          gridData: physiciansData,
+          gridColumn: gridColumn,
+          filterText: '',
+          emptyDataMessage: 'No Data'
+        };
+      };
+
+      $scope.gridColumns = [
+            // {field: "PhysicianName", displayName: "PhysicianName"},
+             {field: "first_name", displayName: "FirstName"},
+             {field: "last_name", displayName: "LastName"},
+             {field: "address", displayName: "Address"},
+             {field: "email", displayName: "Email"},
+             {field: "npi_number", displayName: "NPI"},
+             {field: "department", displayName: "Department"},
+             {field: "designation", displayName: "Designation"},
+             {field: "qualification", displayName: "Qualification"}
+
+      ];
 
   });

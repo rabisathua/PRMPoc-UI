@@ -1,19 +1,19 @@
-﻿(function (prqapp) {
+﻿(function (prmUiApp) {
   'use strict';
 
-  prqapp.directive('iuiTable', [function () {
+  angular.module('prmUiApp').directive('iuiTable', [function () {
     return {
       restrict: 'E',
-      templateUrl: urlDetails[0] + "//" + urlDetails[2] + '/prqstatic/Templates/iuiTable.html',
+      templateUrl:  '/views/directive-templates/iuiTable.html',
       scope: true,
       link: function (scope, element, attrs) {
         scope.iuiTable = {};
         scope.iuiTable.settings = {};
-        scope.iuiTable.settings.defaultRowTemplate = urlDetails[0] + "//" + urlDetails[2] + '/Templates/iuiTableDefaultRow.html';
+        scope.iuiTable.settings.defaultRowTemplate = '/views/directive-templates/iuiTableDefaultRow.html';
         scope.iuiTable.emptyMessage = scope.$parent.$eval(attrs.emptyDataMessage) ? scope.$parent.$eval(attrs.emptyDataMessage) : 'No records to display';
         scope.iuiTable.pagingOption = {
           currentPage: 1,
-          itemsPerPage: 9
+          itemsPerPage: 5
         };
         scope.iuiTable.pagingOption.currentPage = 1;
 
@@ -105,4 +105,4 @@
       }
     };
   }]);
-}(window.prqapp));
+}(window.prmUiApp));
