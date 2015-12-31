@@ -28,7 +28,7 @@ angular.module('prmUiApp')
               alert('Failed to load locations');         
         });
 
-      //GetSpecialities();
+      GetSpecialities();
 
       function GetSpecialities()
       {
@@ -37,7 +37,7 @@ angular.module('prmUiApp')
             $scope.specialities=specialitiesData;
           }).error(
             function () {
-              alert('Failed to load specialities');          
+              alert('No specialities loaded');          
             });
       }
 
@@ -52,10 +52,10 @@ angular.module('prmUiApp')
               $scope.showGrid = false;
             });
       };  
-    $scope.populateSpeciality = function(selected_items)
-    {
-        $window.appIds = selected_items;
-        GetSpecialities();
-    }
 
+      $scope.$on("LoadSpecialities", function (data, event)
+      {
+          GetSpecialities();
+      });
+   
   });

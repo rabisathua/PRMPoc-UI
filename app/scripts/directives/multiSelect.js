@@ -9,7 +9,7 @@ angular.module('prmUiApp').directive('dropdownMultiselect', function(){
        },
        template: "<div class='btn-group' data-ng-class='{open: open}'>"+
         "<button class='btn btn-small'>Select</button>"+
-                "<button class='btn btn-small dropdown-toggle' data-ng-click='open=!open;openDropdown()'><span class='caret'></span></button>"+
+                "<button class='btn btn-small dropdown-toggle' data-ng-click='open=!open'><span class='caret'></span></button>"+
                 "<ul class='dropdown-menu' aria-labelledby='dropdownMenu'>" + 
                 "<li data-ng-repeat='option in options'> <a data-ng-click='setSelectedItem()'>{{option.name}}<span data-ng-class='isChecked(option.id)'></span></a></li>" +                                        
                 "</ul>" +
