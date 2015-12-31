@@ -8,7 +8,7 @@
  * Controller of the prmUiApp
  */
 angular.module('prmUiApp')
-  .controller('LoginCtrl', function($scope, $window, $http) {
+  .controller('LoginCtrl', function ($scope,$window,$http,clientFactory,$rootScope) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -22,12 +22,25 @@ angular.module('prmUiApp')
         method: 'POST'
       }).success(function(locationsData, status, headers, config) {
         $window.location.href = '/#/home'
-        $window.accessToken = headers('access-token')
-        $window.client = headers('client')
-        $window.uid = headers('uid')
-      }).error(function() {
-        alert('Unauthorized User');
-      });
+        $window.accessToken=headers('access-token')
+        $window.client=headers('client')
+        $window.uid=headers('uid')
+        GetClientDetails();
+      }).error(function () {
+        alert('Unauthorized user');
+      });      
     };
 
+    function GetClientDetails() {
+    clientFactory.getClients().success(
+      function(clientData){
+        $rootScope.Clients = clientData;
+        /**$window.appIds = jQuery.map(clientData, function(n, i){
+                return n.id;
+        });**/
+      }).error(
+        function () {
+          alert('Failed to load clients');         
+        });
+    }
   });
