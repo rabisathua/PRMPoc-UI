@@ -21,17 +21,14 @@ describe('Controller: SearchPhysicianCtrl', function () {
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(SearchPhysicianCtrl.awesomeThings.length).toBe(3);
+  it('exists', function () {
+    expect(SearchPhysicianCtrl).not.toBeUndefined();
   });
 
-  it('should call http  locations to ftech locations', function () {
-          resourceUrl = 'http://localhost:3000/api/v1/locations';
-          expectedResult = [{"id":1,"name":"Ap #404-7680 Id, Av.","zip":"52151"}];          
-          http.expectGET(resourceUrl).respond(expectedResult);          
-          http.flush();
-          expect(scope.Regions.length).toBe(1);
-          expect(scope.Regions).toEqual(expectedResult);
+   it('should attach a list of awesomeThings to the scope', function () {
+    expect(SearchPhysicianCtrl.awesomeThings.length).toBe(5);
   });
+
+  
 
 });

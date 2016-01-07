@@ -17,40 +17,35 @@ angular.module('prmUiApp')
       'clientFactory'
     ];
 
-    $scope.Clients = $rootScope.Clients;
-    $scope.selected_items = [];
-
-     searchPhysicianFactory.getLocations().success(
-      function(locationsData){
-            $scope.Regions=locationsData;
-          }).error(
-            function () {
-              alert('Failed to load locations');
-        });
-
-      GetSpecialities();
+      $scope.Clients = $rootScope.Clients;
+      $scope.selected_items = [];
+      init();
+      function init(){
+        searchPhysicianFactory.getLocations().then(
+        function(locationsData){
+              $scope.Regions=locationsData;
+           });
+            
+        GetSpecialities();
+      }    
 
       function GetSpecialities()
       {
-         searchPhysicianFactory.getSpecialities().success(
+         searchPhysicianFactory.getSpecialities().then(
           function(specialitiesData){
             $scope.specialities=specialitiesData;
-          }).error(
-            function () {
-              alert('No specialities loaded');
-            });
-      }
+          });
+      };
 
       $scope.search = function (locationId,specialityId,physicianType){
 
-        searchPhysicianFactory.getPhysicians(locationId,specialityId,physicianType).success(
+        searchPhysicianFactory.getPhysicians(locationId,specialityId,physicianType).then(
         function(physiciansData){
           $scope.physicians = physiciansData;
           loadUIGrid($scope.gridColumns, physiciansData);
-          $scope.showGrid = false;
-        }).error(
-        function () {
-          alert('Failed to load physicians')
+          $scope.showGrid = true;
+        })
+        .catch(function () {
           $scope.showGrid = false;
         });
       };

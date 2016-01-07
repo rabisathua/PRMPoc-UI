@@ -26,7 +26,7 @@ max-width:1366px;
 font: normal 20px/80px robotolight;
 color:#fff;
 background:#ffffff;
-padding: 0px 50px;
+padding: 0px 0px;
 height:80px;
 }
 #header a {
@@ -118,7 +118,7 @@ padding:0 7px;
 }
 .footer a, .startfooter a{
 color:#AAA9A9;
-} 
+}
 .footer a:hover, .startfooter  a:hover {
 text-decoration:none;
 color:#ffffff;
@@ -130,7 +130,7 @@ height:35px;
 padding: 0px 50px;
 line-height:35px;
 font-size:13px;
-font-weight:300;	
+font-weight:300;
  position:absolute;
 bottom:0;
 left:0; /**/
@@ -144,7 +144,7 @@ line-height:25px;
 max-width:600px;
 border:2px solid #ffffff;
 background:#dddddd	;
-overflow:hidden;	
+overflow:hidden;
 margin:20px auto;
 }
 #bstoggle{
@@ -173,4 +173,3 @@ border:2px solid #dddddd;
     margin-bottom: 15px;
 	float: left;
 }
-

@@ -8,8 +8,7 @@
  *
  * Main module of the application.
  */
-angular
-  .module('prmUiApp', [
+angular.module('prmUiApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
@@ -22,12 +21,12 @@ angular
 
     $routeProvider
       .when('/', {
-        templateUrl: 'views/login.html',
+        templateUrl: '/login.html',
         controller: 'LoginCtrl',
         controllerAs: 'login'
       })
       .when('/login', {
-        templateUrl: 'views/login.html',
+        templateUrl: '/login.html',
         controller: 'LoginCtrl',
         controllerAs: 'login'
       })

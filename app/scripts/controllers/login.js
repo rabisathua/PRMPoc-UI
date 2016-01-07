@@ -15,10 +15,11 @@ angular.module('prmUiApp')
       'Karma'
       //'ng-token-auth'
     ];
+    var urlBase = 'http://localhost:3000/api/auth/sign_in?';
 
     $scope.doLogin = function(email, password) {
       $http({
-        url: 'http://localhost:3000/api/auth/sign_in?email=' + email + '&password=' + password,
+        url: urlBase + 'email=' + email + '&password=' + password,
         method: 'POST'
       }).success(function(locationsData, status, headers, config) {
         $window.location.href = '/#/home'
@@ -28,7 +29,7 @@ angular.module('prmUiApp')
         GetClientDetails();
       }).error(function () {
         alert('Unauthorized user');
-      });      
+      });
     };
 
     function GetClientDetails() {
@@ -40,7 +41,7 @@ angular.module('prmUiApp')
         });**/
       }).error(
         function () {
-          alert('Failed to load clients');         
+          alert('Failed to load clients');
         });
     }
   });
