@@ -1,13 +1,48 @@
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-</head>
-<body>
-<div class="table-cell-action ng-action"><span><button class="no-btn" target="_blank">
-<i class="round-icon_edit"></i></button> </span><span><button class="no-btn" target="_blank">
-<i class="round-icon_view"></i></button> </span><span><button class="no-btn" target="_blank">
-<i class="round-icon_unlock"></i></button> </span><span><button class="no-btn" target="_blank">
-<i class="round-icon_submit"></i></button> </span><span><button class="no-btn" target="_blank">
-<i class="round-icon_reopen"></i></button> </span></div>
-</body>
-</html>
+﻿<div class="table-cell-action ng-action">
+     <span data-ng-disabled="Editdisabled" data-ng-click="RedirectToEdit(row.WorkItemId)" tooltip="Edit" tooltip-placement="top orange">
+        <button class="no-btn">
+        <i class="round-icon_edit"></i>
+</button>
+    </span>
+    <!--<span data-ng-disabled="disabled"  data-ng-click="RedirectToView(row.WorkItemId)" tooltip="View" tooltip-placement="top black">
+        <button class="no-btn">
+        <i class="round-icon_view"></i>
+</button>
+
+    </span>-->
+    <span data-ng-show="showUnlockWI && UserDetails.GroupId == 4"  data-ng-click="Unlock(row.WorkItemId)" tooltip="Unlock" tooltip-placement="top">
+        <button class="no-btn">
+        <i class="round-icon_unlock"></i>
+</button>
+
+    </span>
+    <span data-ng-show="showResubmit && requestTypeMiniCode == 'O' && requestTypeNumber == 0 && row.State == null"  tooltip="Resubmit" tooltip-placement="top blue" data-ng-click="Resubmit(row.WorkItemId, row.Request, row.Submitter, row.State)">
+        <button class="no-btn">
+        <i class="round-icon_submit"></i>
+</button>
+
+    </span>
+
+    <span data-ng-show="showReopen && UserDetails.GroupId == 4"  tooltip="Reopen" tooltip-placement="top black" data-ng-click="Reopen(row.WorkItemId)">
+        <button class="no-btn">
+        <i class="round-icon_reopen"></i>
+</button>
+
+    </span>
+
+    <!--<div class="dropdown">
+        <button class="btn smallbtn btn-secondary dropdown-toggle btn-xs" type="button" id="dpActions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <b>Actions</b>
+    <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dpActions">
+            <li><a href="#" data-ng-click="RedirectToView(row.WorkItemId)">View</a></li>
+            <li><a href="#" data-ng-click="RedirectToEdit(row.WorkItemId)">Edit</a></li>
+            <li data-ng-show="showUnlockWI && UserDetails.GroupId == 4"><a href="#" data-ng-click="Unlock(row.WorkItemId)">Unlock</a></li>
+            <li data-ng-show="showResubmit && requestTypeMiniCode == 'O' && requestTypeNumber == 0 && row.State == null"><a href="#" data-ng-click="Resubmit(row.WorkItemId, row.Request, row.Submitter, row.State)">Resubmit</a></li>
+            <li data-ng-show="showReopen && UserDetails.GroupId == 4"><a href="#" data-ng-click="Reopen(row.WorkItemId)">Reopen</a></li>
+        </ul>
+    </div>-->
+
+   
+</div>

@@ -1,17 +1,11 @@
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-</head>
-<body>
-<span class="text-wrap"><span>{{row[column.field]}}</span> </span><span class="text-wrap"><span>{{row[column.field]}}</span>
-</span><span class="text-wrap"><span>{{row[column.field]}}</span> </span><span class="text-wrap"><span>{{row[column.field]}}</span>
-</span><span class="text-wrap"><span>{{row[column.field]}}</span> </span><span class="text-wrap"><span>{{row[column.field]}}</span>
-</span><span class="text-wrap"><span>{{row[column.field]}}</span> </span><span>{{row[column.field] | date: 'M/d/yyyy'}}
-</span>
-<div>
-<div class="hi-grid-menus"></div>
-</div>
-<span class="text-wrap"><span>{{row[column.field]}}</span> </span><span>{{row[column.field]}}
-</span>
-</body>
-</html>
+﻿<td data-header="{{column.displayName}}" ng-repeat="column in iuiTable.displayColumns" ng-switch="column.field" class="list-table-{{column.field}} " >
+
+    <span ng-cell-text tooltip-placement="top" tooltip-append-to-body="true" tooltip-trigger="mouseenter" tooltip-html-unsafe="{{row.FirstName}}">{{row[column.field]}}</span>
+    <!--
+    <span class="text-wrap" ng-switch-when="first_name">
+        <span ng-cell-text tooltip-placement="top" tooltip-append-to-body="true" tooltip-trigger="mouseenter" tooltip-html-unsafe="{{row.FirstName}}">{{row[column.field]}}</span>
+    </span>
+    <span class="text-wrap" ng-switch-when="NPI">
+        <span ng-cell-text tooltip-placement="top" tooltip-append-to-body="true" tooltip-trigger="mouseenter" tooltip-html-unsafe="{{row.NPI}}">{{row[column.field]}}</span>
+    </span> -->
+</td>

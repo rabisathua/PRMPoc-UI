@@ -1,7 +1,7 @@
-﻿(function (prqapp) {
+﻿(function (prmUiApp) {
   'use strict';
 
-  prqapp.directive('iuiSortHeading', [function () {
+  angular.module('prmUiApp').directive('iuiSortHeading', [function () {
     return {
       restrict: 'E',
       transclude: true,
@@ -10,7 +10,7 @@
         iuiSortBy: '=',
         iuiReverse: '='
       },
-      templateUrl: urlDetails[0] + "//" + urlDetails[2] + '/prqstatic/Templates/iuiSortHeading.html'
+      templateUrl:'/views/directive-templates/iuiSortHeading.html'
     };
   }]);
 }(window.prqapp));
