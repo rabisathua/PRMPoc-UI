@@ -33,12 +33,12 @@
               </div>
             </div>
             <div class="col-md-6 col-sm-6 col-xs-4 navigationbar">
-            <div class="col-sm-4" >
+            <div class="col-sm-4" ng-show="showClient">
               <a role="menuitem">Client</a>
               <dropdown-multiselect pre-selected="Clients" model="model" options="Clients" change-event="populateSpeciality(model)"></dropdown-multiselect>
             </div>
-              <a role="menuitem" href="/#/home">HOME</a>
-              <div class="dropdown openprofile">
+              <a role="menuitem" href="/#/home" ng-show="showClient">HOME</a>
+              <div class="dropdown openprofile" ng-show="showClient">
                 <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
                   <img src="images/Profile-Pic.png" alt="profile pic" id="profileicon" />
                   <span id="name">{{username}}</span>
@@ -132,6 +132,7 @@
     <script src="scripts/directives/customPagination.js"></script>
     <script src="scripts/factories/client.js"></script>
     <script src="scripts/directives/multiSelect.js"></script>
+    <script src="scripts/controllers/home.js"></script>
         <!-- endbuild -->
 </body>
 </html>

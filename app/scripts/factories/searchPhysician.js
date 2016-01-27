@@ -2,7 +2,7 @@ angular.module('prmUiApp')
   .factory('searchPhysicianFactory', ['$http','$window','$q','store', function ($http,$window,$q,store) {
   	var urlBase = 'http://localhost:3000/api/v1';
   	var searchPhysicianFactory = {};
-    var authHeaders={'Authorization':"Bearer "+ store.get('token'), 'client': 'email',  'Accept': 'application/json', 'clients': "[2,3]"};
+    var authHeaders={'Authorization':"Bearer "+ store.get('token'), 'client': 'email',  'Accept': 'application/json'};
 
     function httpPromise (url,msg) {
       var deferred = $q.defer();
@@ -26,14 +26,15 @@ angular.module('prmUiApp')
     };
 
   	searchPhysicianFactory.getSpecialities = function () {
-
+      authHeaders["clients"] = JSON.stringify(store.get('selectedClients'));
       return httpPromise('specialities','specialities');
   	};
 
   	searchPhysicianFactory.getPhysicians = function (locationId,specialityId,physicianType) {
       var perPage = 2;
       var page = 1;
-  		return httpPromise('physicians?filters[location_id]='+locationId+'&filters[speciality_id]='+specialityId+'&filters[by]='+physicianType+'&per_page='+perPage+'&page='+page,'physicians');
+      authHeaders["clients"] = JSON.stringify(store.get('selectedClients'));
+  		return httpPromise('physicians?filters[location_id]='+locationId+'&filters[speciality_id]='+specialityId+'&filters[by]=""&per_page='+perPage+'&page='+page,'physicians');
   	};
 
   	return searchPhysicianFactory;

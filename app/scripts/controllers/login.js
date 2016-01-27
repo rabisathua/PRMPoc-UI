@@ -15,6 +15,7 @@ angular.module('prmUiApp')
       'Karma'
       //'ng-token-auth'
     ];
+    $rootScope.showClient = false;
     var urlBase = 'http://localhost:3000/api/auth/sign_in?';
 
     $scope.doLogin = function(email, password) {

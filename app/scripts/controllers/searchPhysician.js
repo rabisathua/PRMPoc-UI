@@ -16,7 +16,7 @@ angular.module('prmUiApp')
       'searchPhysicianFactory',
       'clientFactory'
     ];
-
+$rootScope.showClient = true;
       $scope.Clients = $rootScope.Clients;
       $scope.selected_items = [];
       init();
@@ -25,9 +25,9 @@ angular.module('prmUiApp')
         function(locationsData){
               $scope.Regions=locationsData;
            });
-            
+
         GetSpecialities();
-      }    
+      }
 
       function GetSpecialities()
       {
