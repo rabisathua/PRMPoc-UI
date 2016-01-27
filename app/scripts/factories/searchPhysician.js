@@ -1,8 +1,8 @@
 angular.module('prmUiApp')
-  .factory('searchPhysicianFactory', ['$http','$window','$q', function ($http,$window,$q) {
+  .factory('searchPhysicianFactory', ['$http','$window','$q','store', function ($http,$window,$q,store) {
   	var urlBase = 'http://localhost:3000/api/v1';
   	var searchPhysicianFactory = {};
-    var authHeaders={'access-token': $window.accessToken, 'client': $window.client, 'uid':$window.uid, 'Accept': 'application/json', 'app-id': JSON.stringify($window.appIds)};
+    var authHeaders={'Authorization':"Bearer "+ store.get('token'), 'client': 'email',  'Accept': 'application/json', 'clients': "[2,3]"};
 
     function httpPromise (url,msg) {
       var deferred = $q.defer();
@@ -26,7 +26,7 @@ angular.module('prmUiApp')
     };
 
   	searchPhysicianFactory.getSpecialities = function () {
-      authHeaders["app-id"] = JSON.stringify($window.appIds);
+
       return httpPromise('specialities','specialities');
   	};
 

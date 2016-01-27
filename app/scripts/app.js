@@ -14,10 +14,12 @@ angular.module('prmUiApp', [
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'auth0',
+    'angular-storage', 'angular-jwt'
     //'ng-token-auth'
   ])
-  .config(function($routeProvider) {
+  .config(function($routeProvider,authProvider) {
 
     $routeProvider
       .when('/', {
@@ -33,7 +35,8 @@ angular.module('prmUiApp', [
       .when('/home', {
         templateUrl: 'views/home.html',
         //controller: 'HomeCtrl',
-        controllerAs: 'home'
+        controllerAs: 'home',
+        requiresLogin: true
       })
       .when('/searchPhysician', {
         templateUrl: 'views/searchPhysician.html',
@@ -43,7 +46,16 @@ angular.module('prmUiApp', [
       .otherwise({
         redirectTo: '/'
       });
+
+    authProvider.init({
+      domain: 'fire2win.auth0.com',
+      clientID: 'EwNmlc9leWgspdiiwTbl51dJ5VFgAFLE'
   });
+})
+  .run(function(auth) {
+  // This hooks al auth events to check everything as soon as the app starts
+  auth.hookEvents();
+});
 
 // angular
 //   .module('prmUiApp')
