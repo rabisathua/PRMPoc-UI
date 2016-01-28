@@ -89,48 +89,7 @@
 
             <iui-table display-columns="controllerData.gridColumn" search-data="controllerData.gridData" sorting-options="controllerData.pendingRequestSortingOption" filter-text="controllerData.filterText" empty-data-message="controllerData.emptyDataMessage" row-template="'/views/directive-templates/iuiTableListRow.html'"></iui-table>
 
-              <table class="table detail-table" id="detail-userdatatable">
-                <thead>
-                  <tr>
-                    <th class="col-name">Physician Name</th>
-                    <th class="col-description">First name</th>
-                    <th class="col-last_name">Last Name</th>
-                    <th class="col-npi">NPI</th>
-                    <th class="col-department_name">Department</th>
-                    <!-- <th class="col-action">Specialty</th> -->
-                    <th class="col-action aligncenter">Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr ng-repeat="physician in physicians">
-                    <td data-content="Physician Name">
-                      {{physician.full_name}}
-                    </td>
-                    <td data-content="First Name">
-                      {{physician.first_name}}
-                    </td>
-                    <td data-content="Last Name">
-                      {{physician.last_name}}
-                    </td>
-                    <td data-content="NPI">
-                      {{physician.npi_number}}
-                    </td>
-                    <td data-content="Department Name">
-                      {{physician.department}}
-                    </td>
-                    <!-- <td data-content="Specialty">
-                                            {{physician.speciality_id}}
-                                        </td> -->
-                    <td data-content="Actions">
-                      <div class="aligncenter">
-                        <span title="Edit" class="admin-edit"></span>
-                        <span title="View" class="admin-activate" data-toggle="modal" data-target="#deactivateModal"></span>
-                        <span title="Log" class="admin-delete" data-toggle="modal" data-target="#deleteModalYN"></span>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+              
             </div>
           </div>
             </div>

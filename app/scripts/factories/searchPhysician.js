@@ -34,7 +34,12 @@ angular.module('prmUiApp')
       var perPage = 2;
       var page = 1;
       authHeaders["clients"] = JSON.stringify(store.get('selectedClients'));
-  		return httpPromise('physicians?filters[location_id]='+locationId+'&filters[speciality_id]='+specialityId+'&filters[by]=""&per_page='+perPage+'&page='+page,'physicians');
+      var physicianUrl= 'physicians?filters[location_id]='+locationId+'&filters[speciality_id]='+specialityId+'&per_page='+perPage+'&page='+page;
+      if(physicianType != "all")
+      {
+        physicianUrl= physicianUrl + '&filters[by]='+physicianType;
+      }
+  		return httpPromise(physicianUrl);
   	};
 
   	return searchPhysicianFactory;
