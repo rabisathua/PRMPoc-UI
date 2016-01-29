@@ -16,18 +16,20 @@ angular.module('prmUiApp')
       'searchPhysicianFactory',
       'clientFactory'
     ];
-
+      GetClientDetails();
       $scope.Clients = $rootScope.Clients;
       $scope.selected_items = [];
-      init();
-      function init(){
+       $scope.init=function init(){
         searchPhysicianFactory.getLocations().then(
         function(locationsData){
               $scope.Regions=locationsData;
            });
             
         GetSpecialities();
-      }    
+        GetAssignedTo();
+      }
+      $scope.init();
+    
 
       function GetSpecialities()
       {
@@ -37,9 +39,16 @@ angular.module('prmUiApp')
           });
       };
 
-      $scope.search = function (locationId,specialityId,physicianType){
+      function GetAssignedTo () {
+        searchPhysicianFactory.getAssignedTo().then(
+          function(assignedToData){
+            $scope.assignedTo=assignedToData;
+          });
+      };
 
-        searchPhysicianFactory.getPhysicians(locationId,specialityId,physicianType).then(
+      $scope.search = function (locationId,specialityId,physicianType,liasonAssignedToId){
+
+        searchPhysicianFactory.getPhysicians(locationId,specialityId,physicianType,liasonAssignedToId).then(
         function(physiciansData){
           $scope.physicians = physiciansData;
           loadUIGrid($scope.gridColumns, physiciansData);
@@ -58,6 +67,26 @@ angular.module('prmUiApp')
           emptyDataMessage: 'No Data'
         };
       };
+
+      function GetClientDetails() {
+        clientFactory.getClients().success(
+          function(clientData){
+            $rootScope.Clients = clientData;
+            /**$window.appIds = jQuery.map(clientData, function(n, i){
+                    return n.id;
+            });**/
+      }).error(
+        function () {
+          alert('Failed to load clients');
+        });
+    }
+
+      $scope.populateSpeciality = function(selected_items)
+    {
+        $window.appIds = selected_items;
+       // $rootScope.$broadcast("LoadSpecialities");
+       GetSpecialities();
+    }
 
       $scope.$on("LoadSpecialities", function (data, event)
       {

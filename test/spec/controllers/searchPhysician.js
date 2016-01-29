@@ -7,28 +7,45 @@ describe('Controller: SearchPhysicianCtrl', function () {
 
   }));
 
-  var SearchPhysicianCtrl,
+  var ctrl,httpBackend,
+    svc,
     scope;
-
+var url ='http://localhost:3000/api/v1';
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope, $httpBackend, $q) {
+  beforeEach(inject(function ($controller, $rootScope, $httpBackend, $q, searchPhysicianFactory) {
     scope = $rootScope.$new();
-    http = $httpBackend;
+    httpBackend = $httpBackend;
     q = $q;
-    SearchPhysicianCtrl = $controller('SearchPhysicianCtrl', {
+    svc=searchPhysicianFactory;
+    ctrl = $controller('SearchPhysicianCtrl', {
       $scope: scope
       // place here mocked dependencies
     });
+    
+
   }));
 
+  // afterEach(function() {
+  //     httpBackend.verifyNoOutstandingExpectation();
+  //     httpBackend.verifyNoOutstandingRequest();
+  //   });
+
   it('exists', function () {
-    expect(SearchPhysicianCtrl).not.toBeUndefined();
+    expect(ctrl).toBeDefined();
   });
 
    it('should attach a list of awesomeThings to the scope', function () {
-    expect(SearchPhysicianCtrl.awesomeThings.length).toBe(5);
+    expect(ctrl.awesomeThings.length).toBe(5);
   });
 
+   it('should attach a list of awesomeThings to the scope', function () {
+    var response = 'success';
+    scope.init();
+    httpBackend.expectGET(url + '/locations').respond(200, response);
+    httpBackend.expectGET(url + '/specialities').respond(200, {});
+    //httpBackend.flush();
+    expect(scope.Regions).not.toBeDefined();
+  });
   
 
 });

@@ -37,7 +37,13 @@
             </div>
             <div class="col-lg-12 row">
               <div class="col-lg-9 col-md-9 row">
-                <div class="col-md-9 form-group">
+              <div class="col-md-9 form-group"> 
+              <label class="col-sm-3 control-label">Client</label>
+              
+                  <dropdown-multiselect pre-selected="Clients" model="model"  options="Clients" change-event="populateSpeciality(model)"></dropdown-multiselect>
+                  </div>
+                  
+                <div class="col-md-9 form-group">                
                   <label for="inputEmail3" class="col-sm-3 control-label">Region/Location</label>
                   <div class="col-sm-4">
                     <select ng-model="regionLocation" class="form-control" required ng-options="Region.name for Region in Regions">
@@ -57,17 +63,17 @@
                     </select>
                   </div>
                 </div>
-                <!-- <div class="col-md-9 form-group cleardiv">
-                                    <label for="inputEmail3" class="col-sm-3 control-label">Assigned To</label>
-                                    <div class="col-sm-9">
-                                        <select class="form-control" ng-model="speciality" ng-options="Speciality.name for Speciality in Specialty">
-                                        </select>
-                                    </div>
-                                </div> -->
+                <div class="col-md-9 form-group cleardiv">
+                    <label for="inputEmail3" class="col-sm-3 control-label">Assigned To</label>
+                    <div class="col-sm-9">
+                        <select class="form-control" ng-model="liasonAssignedTo" ng-options="AssignedTo.name.first_name for AssignedTo in assignedTo">
+                        </select>
+                    </div>
+                </div>
                 <div class="col-md-9 form-group cleardiv">
                   <label for="inputEmail3" class="col-sm-3 control-label">Physician Relationship</label>
                   <div class="col-sm-9" style="padding-top: 10px;">
-                    <input name="radio" ng-model="physiciansType" id="All" type="radio" value="all">
+                    <input name="radio" ng-model="physiciansType" id="All" type="radio" value="">
                     <label for="all">All</label>
                     <input id="Involved" ng-model="physiciansType" name="radio" type="radio" value="involved">
                     <label for="Involved">Involved</label>
@@ -77,7 +83,7 @@
                 </div>
               </div>
               <div class="search-add-right">
-                <button class="pull-right activebtn" ng-click="search(regionLocation.id,speciality.id,physiciansType)">Search</button>
+                <button class="pull-right activebtn" ng-click="search(regionLocation.id,speciality.id,physiciansType,liasonAssignedTo.id)">Search</button>
                 <button class="pull-right activebtn" data-toggle="modal"
                                     data-target="#addUserModal"
                                     value="Add-customers">
@@ -86,7 +92,7 @@
             </div>
             <div ng-show="showGrid" class="col-lg-12 col-md-12 col-xs-12 outer-spacing border-top" style="border-top: 1px solid #999;padding-top: 15px;">
             <iui-table display-columns="controllerData.gridColumn" search-data="controllerData.gridData" sorting-options="controllerData.pendingRequestSortingOption" filter-text="controllerData.filterText" empty-data-message="controllerData.emptyDataMessage" row-template="'/views/directive-templates/iuiTableListRow.html'"></iui-table>
-          </div>
+            </div>
             </div>
         </div>
       </div>

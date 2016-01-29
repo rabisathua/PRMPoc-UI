@@ -15,7 +15,7 @@ angular.module('prmUiApp')
           deferred.resolve(data);
         })
         .error(function () {
-              alert('Failed to load ' + msg);
+              //alert('Failed to load ' + msg);
               deferred.reject();
         });
       return deferred.promise;
@@ -30,10 +30,14 @@ angular.module('prmUiApp')
       return httpPromise('specialities','specialities');
   	};
 
-  	searchPhysicianFactory.getPhysicians = function (locationId,specialityId,physicianType) {
+    searchPhysicianFactory.getAssignedTo = function () {
+      return httpPromise('liasons','liasons');
+    };
+
+  	searchPhysicianFactory.getPhysicians = function (locationId,specialityId,physicianType,liasonAssignedToId) {
       var perPage = 2;
       var page = 1;
-  		return httpPromise('physicians?filters[location_id]='+locationId+'&filters[speciality_id]='+specialityId+'&filters[by]='+physicianType+'&per_page='+perPage+'&page='+page,'physicians');
+  		return httpPromise('physicians?filters[location_id]='+locationId+'&filters[speciality_id]='+specialityId+'&filters[liason_id]='+liasonAssignedToId+'&filters[by]='+physicianType+'&per_page='+perPage+'&page='+page,'physicians');
   	};
 
   	return searchPhysicianFactory;

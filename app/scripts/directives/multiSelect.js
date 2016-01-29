@@ -7,7 +7,7 @@ angular.module('prmUiApp').directive('dropdownMultiselect', function(){
             options: '=',
             changeEvent : '&'
        },
-       template: "<div class='btn-group' data-ng-class='{open: open}'>"+
+       template: "<div class='btn-group'  data-ng-class='{open: open}'>"+
         "<button class='btn btn-small'>Select</button>"+
                 "<button class='btn btn-small dropdown-toggle' data-ng-click='open=!open'><span class='caret'></span></button>"+
                 "<ul class='dropdown-menu' aria-labelledby='dropdownMenu'>" + 
