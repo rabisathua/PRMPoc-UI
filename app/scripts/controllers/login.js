@@ -17,13 +17,13 @@ angular.module('prmUiApp')
     ];
     $rootScope.showClient = false;
     var urlBase = 'http://localhost:3000/api/auth/sign_in?';
-
+    //$scope.doLogin();
     $scope.doLogin = function(email, password) {
       auth.signin({
-      authParams: {
-        scope: 'openid name email' // Specify the scopes you want to retrieve
-      }
-    },function(profile,token){
+        username: email,
+        password: password,
+        connection: 'Username-Password-Authentication'        
+       },function(profile,token){
         store.set('profile', profile);
         store.set('token', token);
         GetClientDetails();
@@ -44,7 +44,7 @@ angular.module('prmUiApp')
       //   alert('Unauthorized user');
       // });
     };
-
+    //doLogin();
     function GetClientDetails() {
     clientFactory.getClients().success(
       function(clientData){

@@ -48,8 +48,9 @@ angular.module('prmUiApp', [
       });
 
     authProvider.init({
-      domain: 'fire2win.auth0.com',
-      clientID: 'EwNmlc9leWgspdiiwTbl51dJ5VFgAFLE'
+      domain: 'predqa.auth0.com',
+      clientID: 'JqOYVMqEK73bhd22fAn1NrtYPChQrXoA'
+      //clientSecret: 'AV9331Ikh7Jmaw19b8v8ircZd1YPRX4WG7YT7pH17sgD3loYryfolZagfDr04wB2'
   });
 })
   .run(function(auth) {

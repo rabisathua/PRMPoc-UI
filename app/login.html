@@ -45,7 +45,7 @@
     </style>
 </head>
 <body ng-app="prmUiAppLogin" ng-controller="LoginCtrl">
-  <p>test</p>
+  
 <!-- Navigation -->
 	<div class="container">
     <div class="row">
@@ -54,10 +54,10 @@
 				<div class="col-md-4">
 					<div class="signin">
 						<h4>User Login</h4>
-						<input ng-show="false" type="text" id="usrnme" value="User name" ng-model="email" title="Enter valid username"  onfocus="if (this.value=='User name') {this.value=''}" onblur="if (this.value=='') {this.value='User name'}"/>
-						<input ng-show="false" type="password"  id="pswrd" value="Password" ng-model="password" title="Enter valid password"  onfocus="if (this.value=='Password') {this.value='';this.setAttribute('class', 'contentdisc');}" onblur ="if(this.value==''){this.value='Password'; this.removeAttribute('class');}"/>
+						<!-- <input ng-show="true" type="text" id="usrnme" value="User name" ng-model="email" title="Enter valid username"  onfocus="if (this.value=='User name') {this.value=''}" onblur="if (this.value=='') {this.value='User name'}"/>
+						<input ng-show="true" type="password"  id="pswrd" value="Password" ng-model="password" title="Enter valid password"  onfocus="if (this.value=='Password') {this.value='';this.setAttribute('class', 'contentdisc');}" onblur ="if(this.value==''){this.value='Password'; this.removeAttribute('class');}"/> -->
 						<button ng-click="doLogin(email,password)">Sign In</button>
-						<a href="#" ng-show="false">Forgot Password?</a>
+						<!-- <a href="#" ng-show="true">Forgot Password?</a> -->
 					</div>
 				</div>
 				<div class="col-md-8">

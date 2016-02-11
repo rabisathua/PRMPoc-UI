@@ -15,7 +15,11 @@ angular.module('prmUiApp')
       'Karma'
     ];
     var profile=store.get("profile");
-    $scope.username=profile.name;
+    if(profile!=null)
+    {
+      $scope.username=profile.name;  
+    }
+
      var currentUrl = $window.location.href.indexOf("login");
      if(currentUrl == -1)
      {
